@@ -10,14 +10,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class CashierServiceImp implements CashierService {
+public class CashierServiceImp implements CashierService, Runnable{
 
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
+    @Override
+    public void run() {
 
-        }
-    };
+    }
+
+
     @Override
     public String sell(Cashier cashier, Cart cart) {
         dispenseReceipt(cart);
@@ -34,19 +34,21 @@ public class CashierServiceImp implements CashierService {
         ExecutorService executorService = Executors.newFixedThreadPool(1);
         int count = 0;
         while (!carts.isEmpty()) {
+            Cart cart = carts.poll();
             executorService.execute(() -> {
                 try{
                     TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Cart cart = carts.poll();
+
 //            dispenseReceipt(cart);
 
                 System.out.println(cart);;
             });
            ++count;
         }
+        executorService.shutdown();
         return count;
     }
 
@@ -63,6 +65,7 @@ public class CashierServiceImp implements CashierService {
         System.out.println("Total \t\t\t\t\t\t \t # " +  cart.getTotalAmount()*cart.getQuantity());
         System.out.println("---------------------------------------");
     }
+
 
 
 }

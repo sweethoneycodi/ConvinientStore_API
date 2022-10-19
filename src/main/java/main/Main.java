@@ -60,7 +60,7 @@ public class Main extends Thread {
         CashierServiceImp cashierServiceImp = new CashierServiceImp();
         //cashierServiceImp.sellPriorityQueue(cashier, priorityQueue);
         System.out.println("");
-       // cashierServiceImp.sellOrderly(cashier, queue);
+        cashierServiceImp.sellOrderly(cashier, queue);
 
        // cashierServiceImp.dispenseReceipt(cart4);
 
