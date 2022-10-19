@@ -9,8 +9,13 @@ import services.impl.*;
 
 import java.util.*;
 
-public class Main {
+public class Main extends Thread {
     public static void main(String[] args) throws CustomException {
+
+
+
+
+
         Applicant applicant1 = new Applicant(Qualification.MSC,Role.CASHIER);
         Applicant applicant2 = new Applicant(Qualification.HND,Role.CASHIER);
         Store store = new Store("SONS");
@@ -40,7 +45,7 @@ public class Main {
         Cart cart = customerService1.buy(customer12,newStore,"polo",2,10000050);
         Cart cart2 = customerService1.buy(customer22,newStore,"polo",2,1000003);
         Cart cart3 = customerService1.buy(customer24,newStore,"polo",3,1000500);
-        Cart cart4 = customerService1.buy(customer28,newStore,"polo",1,1000500);
+        Cart cart4 = customerService1.buy(customer28,newStore,"polo",5,1000500);
 
         PriorityQueue<Cart> priorityQueue = new PriorityQueue<Cart>(new CartComparator());
         Queue<Cart> queue = new ArrayDeque<>();
@@ -53,39 +58,27 @@ public class Main {
         priorityQueue.add(cart4);
         queue.add(cart4);
         CashierServiceImp cashierServiceImp = new CashierServiceImp();
-        cashierServiceImp.sellPriorityQueue(cashier, priorityQueue);
+        //cashierServiceImp.sellPriorityQueue(cashier, priorityQueue);
         System.out.println("");
-        cashierServiceImp.sellOrderly(cashier, queue);
+       // cashierServiceImp.sellOrderly(cashier, queue);
+
+       // cashierServiceImp.dispenseReceipt(cart4);
+
+//        Runnable runnable = new Runnable() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        };
+//
+//        Thread thread = new Thread(runnable);
+//        thread.start();
 
 
 
-
-
-//        Customer = new Customer("john","08098767","no@gmail.com",10000 );
-//
-//        CartSaleImpl cartSaleImpl = customerMan.addToCart(customer, newStore, "polo", 2, 30000.0);
-//
-//        Customer customer2 = new Customer("james","08098767","no@gmail.com",10000 );
-//
-//        CartSaleImpl cartSaleImpl2 = customerMan.addToCart(customer, newStore, "shoe", 2, 30000.0);
-//
-//        CashierServiceImp cashierService1 = new CashierServiceImp();
-//        cashierService1.dispenseReceipt(cartSaleImpl2);
-
-
-//        List<CartSaleImpl> sell = new LinkedList<>();
-//        sell.add(cartSaleImpl2);
-//        sell.add(cartSaleImpl);
-//
-//        Collections.sort(sell, new CartSaleComparator());
-//        System.out.println(sell);
-//
-//       CashierService cashierService4 = new CashierServiceImp();
-//
-//
-//
-//
 ////        steve.addToProductList(store);
 //       System.out.println(store.getProductList());
     }
+
+
 }
