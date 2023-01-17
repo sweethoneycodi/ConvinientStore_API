@@ -10,12 +10,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class CashierServiceImp implements CashierService, Runnable{
+public class CashierServiceImp implements CashierService {
 
-    @Override
-    public void run() {
 
-    }
 
 
     @Override

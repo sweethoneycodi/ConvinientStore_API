@@ -62,22 +62,7 @@ public class Main extends Thread {
         System.out.println("");
         cashierServiceImp.sellOrderly(cashier, queue);
 
-       // cashierServiceImp.dispenseReceipt(cart4);
 
-//        Runnable runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//
-//            }
-//        };
-//
-//        Thread thread = new Thread(runnable);
-//        thread.start();
-
-
-
-////        steve.addToProductList(store);
-//       System.out.println(store.getProductList());
     }
 
 
